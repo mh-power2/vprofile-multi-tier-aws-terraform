@@ -1,37 +1,48 @@
 
+# ==========================================
+# Terraform generated files
+# ==========================================
 
-**/.terraform/*
-
-
+**/.terraform/
 *.tfstate
 *.tfstate.*
-*.tfstate.backup
-
-
 *.tfplan
-tfplan
+*.plan
+crash.log
+crash.*.log
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
 
-**/terraform.tfvars
-**/terraform.tfvars.json
+# ==========================================
+# Sensitive configuration
+# ==========================================
+
+terraform.tfvars
+terraform.tfvars.json
 *.auto.tfvars
 *.auto.tfvars.json
 
 
+# ==========================================
+# Private keys and credentials
+# ==========================================
+
 *.pem
 *.key
-keys/
-
-
+.aws/
 .env
 .env.*
-.aws/
 
 
-*.log
+# ==========================================
+# Operating System and IDE files
+# ==========================================
 
-
-.vscode/
-.idea/
 .DS_Store
 Thumbs.db
+.vscode/

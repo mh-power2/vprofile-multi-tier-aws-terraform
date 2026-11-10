@@ -1,4 +1,8 @@
 
+# ==========================================
+# AWS Account Information
+# ==========================================
+
 output "aws_account_id" {
   description = "AWS account ID used by Terraform"
   value       = data.aws_caller_identity.current.account_id
@@ -8,6 +12,11 @@ output "aws_user_arn" {
   description = "Identity currently used by Terraform"
   value       = data.aws_caller_identity.current.arn
 }
+
+
+# ==========================================
+# Network Information
+# ==========================================
 
 output "vpc_id" {
   description = "ID of the project VPC"
@@ -24,8 +33,14 @@ output "private_subnet_id" {
   value       = aws_subnet.private.id
 }
 
+
+# ==========================================
+# EC2 Information
+# ==========================================
+
 output "ec2_instance_ids" {
-  description = "IDs of all VProfile EC2 instances"
+  description = "IDs of all project EC2 instances"
+
   value = {
     for name, instance in aws_instance.servers :
     name => instance.id
@@ -33,7 +48,8 @@ output "ec2_instance_ids" {
 }
 
 output "ec2_private_ips" {
-  description = "Private IP addresses of all servers"
+  description = "Private IP addresses of all project servers"
+
   value = {
     for name, instance in aws_instance.servers :
     name => instance.private_ip
@@ -41,7 +57,8 @@ output "ec2_private_ips" {
 }
 
 output "ec2_public_ips" {
-  description = "Public IP addresses of all servers"
+  description = "Public IP addresses of all project servers"
+
   value = {
     for name, instance in aws_instance.servers :
     name => instance.public_ip
